@@ -3,12 +3,29 @@
     android:versionCode="1"
     android:versionName="1.0">
 
+    <!-- SDK Version -->
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15" />
 
+    <!-- Application Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- Application Node -->
     <application android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme">
 
+        <!-- Splash Screen Activity -->
+        <activity android:name=".activity.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- Main List Activity -->
+        <activity android:name=".activity.ImageListActivity" />
+        
     </application>
 
 </manifest>
