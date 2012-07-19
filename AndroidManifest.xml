@@ -26,6 +26,8 @@
         <!-- Main List Activity -->
         <activity android:name=".activity.ImageListActivity" />
         
+        <activity android:name=".activity.FullscreenImageActivity" />
+        
     </application>
 
 </manifest>

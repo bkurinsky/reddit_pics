@@ -8,18 +8,6 @@
         android:id="@+id/postTitle_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    
-    <RelativeLayout 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
-        <ProgressBar
-            android:id="@+id/postImage_progressBar"
-            style="@android:style/Widget.ProgressBar"
-            android:layout_centerInParent="true"
-            android:indeterminate="true"
-            android:layout_height="40dp"
-            android:layout_width="40dp"/>
         
         <ImageView 
         android:id="@+id/postImage_imageView"
@@ -28,6 +16,5 @@
         android:layout_height="wrap_content"
         android:scaleType="fitXY"/>
         
-    </RelativeLayout>
    
 </LinearLayout>

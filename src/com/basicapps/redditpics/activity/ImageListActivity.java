@@ -5,14 +5,18 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.basicapps.redditpics.R;
 import com.basicapps.redditpics.adapter.PostAdapter;
 import com.basicapps.redditpics.model.ListingResponse;
+import com.basicapps.redditpics.model.Post;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,6 +33,18 @@ public class ImageListActivity extends Activity {
 		setContentView(R.layout.image_list_activity_layout);
 		
 		imageListView = (ListView)findViewById(R.id.imageList_listView);
+		imageListView.setOnItemClickListener( new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				Post clickedPost = (Post)parent.getAdapter().getItem(position);
+				Intent fullscreenImageIntent = new Intent(ImageListActivity.this, FullscreenImageActivity.class);
+				fullscreenImageIntent.putExtra("image_url", clickedPost.getPostData().getImageUrl());
+				fullscreenImageIntent.putExtra("thumbnail_url", clickedPost.getPostData().getThumbnailUrl());
+				ImageListActivity.this.startActivity(fullscreenImageIntent);
+			}
+		});
 		
 		new ListingDownloaderAsyncTask().execute("test");
 	}

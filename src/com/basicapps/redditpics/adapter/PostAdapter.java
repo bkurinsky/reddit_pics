@@ -49,8 +49,15 @@ public class PostAdapter extends FillableBaseAdapter<Post> {
 		postViewHolder.postTitle.setText(currentPost.getPostData().getTitle());
 		Log.d("TAG", "Position:" + position + " - " + currentPost.getPostData().getTitle() +": " + currentPost.getPostData().getImageUrl());
 		AQuery aq = new AQuery(postViewHolder.postImage);
-		aq.progress(R.id.postImage_progressBar);
-		aq.image(currentPost.getPostData().getImageUrl(), false, true, 200, 0, aq.getCachedImage(currentPost.getPostData().getThumbnailUrl()), AQuery.FADE_IN, AQuery.RATIO_PRESERVE);
+		
+		if( aq.shouldDelay(position, convertView, parent, currentPost.getPostData().getImageUrl())) {
+			aq.image(aq.getCachedImage(R.drawable.ic_launcher), 1.0f / 1.0f);
+		} else {
+			aq.image(currentPost.getPostData().getImageUrl(), false, true, 500, 0, aq.getCachedImage(currentPost.getPostData().getThumbnailUrl()), AQuery.FADE_IN, 1.0f / 1.0f);
+		}
+		
+		//aq.progress(R.id.postImage_progressBar);
+		//aq.image(currentPost.getPostData().getImageUrl(), false, true, 500, 0, aq.getCachedImage(currentPost.getPostData().getThumbnailUrl()), AQuery.FADE_IN, 1.0f / 1.0f);
 		
 		newView.setTag(postViewHolder);
 		
