@@ -21,36 +21,38 @@ public class Post extends ItemId {
 			"is_self", "created", "author_flair_text", "media", "num_reports" })
 	public static class PostData {
 		@JsonProperty("id")
-		String mId;
+		private String mId;
 
 		@JsonProperty("title")
 		String mTitle;
 		public Spanned getTitle() { return Html.fromHtml(mTitle); }
 
 		@JsonProperty("num_comments")
-		Integer mComments;
+		private Integer mComments;
 
 		@JsonProperty("over_18")
-		Boolean mOverEighteen;
+		private Boolean mOverEighteen;
 
 		@JsonProperty("thumbnail")
-		String mThumbnailUrl;
+		private String mThumbnailUrl;
 		public String getThumbnailUrl() { return mThumbnailUrl; }
 
 		@JsonProperty("downs")
-		Integer mDownvotes;
-
+		private Integer mDownvotes;
+		public Integer getDownvotes() { return mDownvotes; }
+		
 		@JsonProperty("permalink")
-		String mPermalinkSuffix;
+		private String mPermalinkSuffix;
 
 		@JsonProperty("name")
-		String mName;
+		private String mName;
 
 		@JsonProperty("created_utc")
-		Integer mTimestamp;
+		private Long mTimestamp;
+		public Long getTimestamp() { return mTimestamp; }
 
 		@JsonProperty("url")
-		String mLinkUrl;
+		private String mLinkUrl;
 		public String getLinkUrl() { return mLinkUrl; }
 		
 		public String getImageUrl() {
@@ -62,9 +64,11 @@ public class Post extends ItemId {
 		}
 
 		@JsonProperty("author")
-		String mAuthorName;
+		private String mAuthorName;
+		public String getAuthorName() { return mAuthorName; }
 
 		@JsonProperty("ups")
-		Integer mUpvotes;
+		private Integer mUpvotes;
+		public Integer getUpvotes() { return mUpvotes; }
 	}
 }

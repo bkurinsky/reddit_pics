@@ -1,6 +1,9 @@
 package com.basicapps.redditpics.adapter;
 
+import java.util.Date;
 import java.util.List;
+
+import org.ocpsoft.pretty.time.PrettyTime;
 
 import android.content.Context;
 import android.util.Log;
@@ -23,10 +26,18 @@ public class PostAdapter extends FillableBaseAdapter<Post> {
 	private class PostViewHolder {
 		private TextView postTitle;
 		private ImageView postImage;
+		private TextView postUpvotes;
+		private TextView postDownvotes;
+		private TextView postTimestamp;
+		private TextView postUser;
 		
 		public PostViewHolder(View view) {
-			postTitle = (TextView)view.findViewById(R.id.postTitle_textView);
-			postImage = (ImageView)view.findViewById(R.id.postImage_imageView);
+			postTitle = (TextView)view.findViewById(R.id.postListItem_postTitleTextView);
+			postImage = (ImageView)view.findViewById(R.id.postListItem_postImageImageView);
+			postUpvotes = (TextView)view.findViewById(R.id.postListItem_postUpvotesTextView);
+			postDownvotes = (TextView)view.findViewById(R.id.postListItem_postDownvotesTextView);
+			postTimestamp = (TextView)view.findViewById(R.id.postListItem_postTimestampTextView);
+			postUser = (TextView)view.findViewById(R.id.postListItem_postUserTextView);
 		}
 	}
 
@@ -47,6 +58,11 @@ public class PostAdapter extends FillableBaseAdapter<Post> {
 		Post currentPost = mItems.get(position);
 		
 		postViewHolder.postTitle.setText(currentPost.getPostData().getTitle());
+		postViewHolder.postUpvotes.setText(currentPost.getPostData().getUpvotes().toString());
+		postViewHolder.postDownvotes.setText(currentPost.getPostData().getDownvotes().toString());
+		postViewHolder.postTimestamp.setText( new PrettyTime().format( new Date(currentPost.getPostData().getTimestamp() ) ));
+		postViewHolder.postUser.setText(currentPost.getPostData().getAuthorName());
+		
 		Log.d("TAG", "Position:" + position + " - " + currentPost.getPostData().getTitle() +": " + currentPost.getPostData().getImageUrl());
 		AQuery aq = new AQuery(postViewHolder.postImage);
 		
