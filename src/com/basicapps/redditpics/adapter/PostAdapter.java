@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.androidquery.AQuery;
 import com.basicapps.redditpics.R;
 import com.basicapps.redditpics.model.Post;
+import com.basicapps.redditpics.util.TypefaceHelper;
+import com.basicapps.redditpics.util.TypefaceHelper.TypefaceName;
 
 public class PostAdapter extends FillableBaseAdapter<Post> {
 	
@@ -31,6 +33,20 @@ public class PostAdapter extends FillableBaseAdapter<Post> {
 		private TextView postTimestamp;
 		private TextView postUser;
 		
+		// ID's to style with fonts
+		public final int[] resourceIds = {
+			R.id.postListItem_postTitleTextView,
+			R.id.postListItem_postVoteStartCharacterTextView,
+			R.id.postListItem_postUpvotesTextView,
+			R.id.postListItem_postVoteDividerTextView,
+			R.id.postListItem_postDownvotesTextView,
+			R.id.postListItem_postVoteEndCharacterTextView,
+			R.id.postListItem_postSubmittedTextView,
+			R.id.postListItem_postTimestampTextView,
+			R.id.postListItem_postSubmittedByTextView,
+			R.id.postListItem_postUserTextView
+		};
+		
 		public PostViewHolder(View view) {
 			postTitle = (TextView)view.findViewById(R.id.postListItem_postTitleTextView);
 			postImage = (ImageView)view.findViewById(R.id.postListItem_postImageImageView);
@@ -38,6 +54,7 @@ public class PostAdapter extends FillableBaseAdapter<Post> {
 			postDownvotes = (TextView)view.findViewById(R.id.postListItem_postDownvotesTextView);
 			postTimestamp = (TextView)view.findViewById(R.id.postListItem_postTimestampTextView);
 			postUser = (TextView)view.findViewById(R.id.postListItem_postUserTextView);
+			TypefaceHelper.applyTypeFaceToViewIds(view.getContext(), view, TypefaceName.VERDANA, resourceIds);
 		}
 	}
 
@@ -60,7 +77,7 @@ public class PostAdapter extends FillableBaseAdapter<Post> {
 		postViewHolder.postTitle.setText(currentPost.getPostData().getTitle());
 		postViewHolder.postUpvotes.setText(currentPost.getPostData().getUpvotes().toString());
 		postViewHolder.postDownvotes.setText(currentPost.getPostData().getDownvotes().toString());
-		postViewHolder.postTimestamp.setText( new PrettyTime().format( new Date(currentPost.getPostData().getTimestamp() ) ));
+		postViewHolder.postTimestamp.setText( new PrettyTime().format( new Date(currentPost.getPostData().getTimestamp()) ));
 		postViewHolder.postUser.setText(currentPost.getPostData().getAuthorName());
 		
 		Log.d("TAG", "Position:" + position + " - " + currentPost.getPostData().getTitle() +": " + currentPost.getPostData().getImageUrl());
@@ -71,9 +88,6 @@ public class PostAdapter extends FillableBaseAdapter<Post> {
 		} else {
 			aq.image(currentPost.getPostData().getImageUrl(), false, true, 500, 0, aq.getCachedImage(currentPost.getPostData().getThumbnailUrl()), AQuery.FADE_IN, 1.0f / 1.0f);
 		}
-		
-		//aq.progress(R.id.postImage_progressBar);
-		//aq.image(currentPost.getPostData().getImageUrl(), false, true, 500, 0, aq.getCachedImage(currentPost.getPostData().getThumbnailUrl()), AQuery.FADE_IN, 1.0f / 1.0f);
 		
 		newView.setTag(postViewHolder);
 		

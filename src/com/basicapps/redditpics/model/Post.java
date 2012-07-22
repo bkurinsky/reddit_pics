@@ -49,7 +49,7 @@ public class Post extends ItemId {
 
 		@JsonProperty("created_utc")
 		private Long mTimestamp;
-		public Long getTimestamp() { return mTimestamp; }
+		public Long getTimestamp() { return (mTimestamp * 1000); }
 
 		@JsonProperty("url")
 		private String mLinkUrl;
