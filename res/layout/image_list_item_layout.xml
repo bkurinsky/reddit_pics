@@ -2,29 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/postListItem_postTitleTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Test title..."
+        android:minLines="1"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/title_blue"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp" >
 
         <TextView
             android:id="@+id/postListItem_postVoteStartCharacterTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="(" />
+            android:text="("
+            android:textColor="@color/comment_grey" 
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/postListItem_postUpvotesTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="759" />
+            android:text="759" 
+            android:textColor="@color/upvote_orange"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/postListItem_postVoteDividerTextView"
@@ -32,43 +43,57 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
-            android:text="|" />
+            android:text="|" 
+            android:textColor="@color/comment_grey"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/postListItem_postDownvotesTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="114" />
+            android:text="114"
+            android:textColor="@color/downvote_blue"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/postListItem_postVoteEndCharacterTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text=")" />
+            android:text=")" 
+            android:textColor="@color/comment_grey"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/postListItem_postSubmittedTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text=" submitted " />
+            android:text=" submitted " 
+            android:textColor="@color/comment_grey"
+            android:textSize="10sp"/>
 
         <TextView
             android:id="@+id/postListItem_postTimestampTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="4 hours ago" />
+            android:text="4 hours ago" 
+            android:textColor="@color/comment_grey"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/postListItem_postSubmittedByTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text=" by " />
+            android:text=" by " 
+            android:textColor="@color/comment_grey"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/postListItem_postUserTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="emtcj" />
+            android:text="emtcj" 
+            android:textColor="@color/author_blue"
+            android:textSize="10sp" />
     </LinearLayout>
 
     <ImageView
@@ -76,6 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="Post image."
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>

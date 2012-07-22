@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="title_blue">#0000FF</color>
+	<color name="upvote_orange">#FF8B24</color>
+	<color name="downvote_blue">#9494fF</color>
+	<color name="author_blue">#496BBC</color>
+	<color name="comment_grey">#888888</color>
+</resources>
