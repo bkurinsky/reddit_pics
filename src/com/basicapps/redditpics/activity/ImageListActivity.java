@@ -88,6 +88,9 @@ public class ImageListActivity extends Activity {
 		
 		@Override
 		protected void onPostExecute(ListingResponse result) {
+			if(result == null){
+				return ;
+			}
 			ImageListActivity.this.postAdapter = new PostAdapter(ImageListActivity.this, result.getPosts());
 			ImageListActivity.this.imageListView.setAdapter(ImageListActivity.this.postAdapter);
 		}
