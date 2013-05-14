@@ -18,7 +18,7 @@ public class Post extends ItemId {
 			"selftext_html", "selftext", "likes", "link_flair_text", "clicked",
 			"score", "approved_by", "hidden", "subreddit_id", "edited",
 			"link_flair_css_class", "author_flair_css_class", "saved",
-			"is_self", "created", "author_flair_text", "media", "num_reports" })
+			"is_self", "created", "author_flair_text", "media", "num_reports","distinguished" })
 	public static class PostData {
 		@JsonProperty("id")
 		private String mId;
